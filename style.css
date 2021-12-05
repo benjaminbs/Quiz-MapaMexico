@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body{
+	height: 100%;
+	background-color: #0A1931;
+}
+
+
+._titleInicio{
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-size: 3rem;
+	margin-top: 10%;
+	margin-bottom: 0rem;
+}
+
+._btnIniciar{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 1rem 3rem;
+	background-color: #AE00FB;
+	width: 20%;
+	font-size: 3rem;
+	text-decoration: none;
+	color: #fff;
+	outline: none;
+	border: 0;
+}
+
+._title{
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-size: 3rem;
+	margin: 0;
+}
+
+._subtitle{
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-size: 2.5rem;
+	margin-top: 0.3rem;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-auto-rows: auto;
+	margin-top: 1.5rem;
+}
+.one {
+	margin: 0;
+	padding: 0rem;
+	color: #fff;
+}
+.two {
+	margin: 0 0 0 0;
+}
+
+@media (max-width: 1024px) {
+	.wrapper {
+		grid-template-columns: 100%;
+	}
+	/*.two {
+		user-zoom: zoom;
+		overflow: scroll;
+	}
+	.mapa{
+		transform: scale(2) translate(120px,90px);
+	}*/
+
+}
+@media (max-width: 480px) {
+	._titleInicio{
+		margin-top: 50%;
+	}
+}
+
+._textQuestion{
+	font-size: 2rem;
+	text-align: center;
+}
+
+#_questionState{
+	font-size: 3rem;
+	text-align: center;
+}
+
+._state{
+	cursor: pointer;
+	/*transition: all 2s ease-in-out 0.5s;
+  -webkit-transition: all 2s ease-in-out 0.5s;*/
+}
+._state:hover{
+	fill: blue !important;
+	/*transform: scale(1.1) translate(0,0);
+	-ms-transform: scale(1.1) translate(0,0);
+	-webkit-transform: scale(1.1) translate(0,0);*/
+}
+._state:active{
+	fill: #b9b9b9;
+}
+.stateOk{
+	fill: green !important;
+}
