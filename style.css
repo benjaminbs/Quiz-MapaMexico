@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 body{
 	height: 100%;
@@ -8,39 +9,48 @@ body{
 
 ._titleInicio{
 	text-align: center;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: bolder;
+	color: #fff;
 	font-size: 3rem;
-	margin-top: 10%;
+	margin-top: auto;
 	margin-bottom: 0rem;
 }
 
-._btnIniciar{
+.btn{
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	text-decoration: none;
+	cursor: pointer;
+
+}
+._btnIniciar{
+	margin: auto auto;
 	text-align: center;
 	padding: 1rem 3rem;
-	background-color: #AE00FB;
-	width: 20%;
+	background-color: #fff;
+	width: min-content;
 	font-size: 3rem;
-	text-decoration: none;
-	color: #fff;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: bold;
+	color: #000;
 	outline: none;
-	border: 0;
+	border: 0.3rem solid black;
+	border-radius: 10px;
 }
 
 ._title{
 	text-align: center;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto Mono', monospace;
 	font-size: 3rem;
 	margin: 0;
 }
 
 ._subtitle{
 	text-align: center;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto Mono', monospace;
+	color: #fff;
 	font-size: 2.5rem;
-	margin-top: 0.3rem;
+	margin-top: 0rem;
 }
 
 .wrapper {
@@ -69,6 +79,9 @@ body{
 	.mapa{
 		transform: scale(2) translate(120px,90px);
 	}*/
+	.modal-content {
+		width: 75% !important;
+	}
 
 }
 @media (max-width: 480px) {
@@ -80,10 +93,14 @@ body{
 ._textQuestion{
 	font-size: 2rem;
 	text-align: center;
+	margin-bottom: 1rem;
 }
 
 #_questionState{
+	margin: 0 0;
+	color: #fff;
 	font-size: 3rem;
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -103,4 +120,54 @@ body{
 }
 .stateOk{
 	fill: green !important;
+}
+
+
+#_msgQuestion{
+	margin-top: 2rem;
+	padding: 1rem;
+	text-align: center;
+	color: #000;
+	background-color: #fff;
+	font-family: 'Roboto Mono', monospace;
+	display: none;
+	border: 4px dotted black;
+}
+
+
+.modal {
+	display: none; 
+	position: fixed; 
+	z-index: 1;
+	padding-top: 100px; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.modal-content {
+	background-color: rgba(0, 0, 0, 1);
+	margin: auto;
+	padding: 20px;
+	border: 5px solid #888;
+	width: 40%;
+	height: 50%;
+	color: #fff;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.btnsFinish{
+	color: #fff;
+}
+.btnsFinish:hover{
+	color: aqua;
+}
+
+#_numStates{
+	text-align: end;
 }

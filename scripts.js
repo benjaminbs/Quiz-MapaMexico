@@ -1,5 +1,9 @@
 const statesMexico = document.querySelectorAll("._state");
 const quizState = document.querySelector('#_questionState');
+const msgQuestion = document.querySelector('#_msgQuestion');
+const btnRestart = document.querySelector('#_btnRestart');
+const modal = document.querySelector('#myModal');
+const numStates = document.querySelector('#_numStates')
 
 let numQuestion;
 
@@ -40,59 +44,61 @@ const STATES={
 
 let newSTATE =[]
 
-const startQuiz = () =>{
-	numQuestion = Math.floor(Math.random() * Object.keys(STATES).length);
-	_questionState.innerHTML = STATES[numQuestion]
+const Message = (msg) =>{
+		msgQuestion.style.display = 'block';
+		msgQuestion.innerHTML = msg
 }
 
-const restartQuiz = () =>{
+const startQuiz = () =>{
+	modal.style.display = 'none'
+	msgQuestion.style.display = 'none';
+	newSTATE = []
+	statesMexico.forEach(el => el.classList.remove('stateOk'));
+	numQuestion = Math.floor(Math.random() * Object.keys(STATES).length);
+	_questionState.innerHTML = STATES[numQuestion]
+	numStates.innerHTML = 'Estados restantes: 0/32'
+}
+
+const newQuestion = () =>{
 	if(newSTATE.length <32){
 		do{
 			numQuestion = Math.floor(Math.random() * Object.keys(STATES).length);
 			console.log(newSTATE.includes(numQuestion.toString()))
 		}while(newSTATE.includes(numQuestion.toString()) == true);
 		_questionState.innerHTML = STATES[numQuestion]
+		numStates.innerHTML = 'Estados restantes: ' + newSTATE.length + '/32'
 	}else{
-		alert("Ha terminado")
+		modal.style.display = 'block'
 	}
 		
 }
 
+const finishQuiz = () =>{
 
-const getValueState = (estado)  =>{
+}
+
+const checkState = (estado)  =>{
 	if(parseInt(estado.id) === numQuestion){
-		console.log('bien');
 		estado.classList.add("stateOk");
 		newSTATE.push(estado.id)
-		console.log(newSTATE)
-		restartQuiz();
+		Message('Muy bien, continue con los demás estados.');
+		newQuestion();
 	}else{
-		console.log('mal');
-		restartQuiz();
+		Message('El estado seleccionado no corresponde al indicado.')
+		newQuestion();
 	}
 
 	
 }
 
-const efectto = (aaa) =>{
-
-}
 
 
 const registerEventHandlers = () => {
 	window.addEventListener('load',startQuiz)
 	statesMexico.forEach(el => el.addEventListener('click', event =>{
-		getValueState(el)
+		checkState(el)
 	}));
-	/*statesMexico.forEach(el => el.addEventListener('mouseover', event =>{
-		efectto(el)
-	}));
-	statesMexico.forEach(ela => ela.addEventListener('mouseout', event =>{
-		efecttoaa(ela)
-	}));*/
+	btnRestart.addEventListener('click',startQuiz)
 }
-
-
-
 
 registerEventHandlers();
